@@ -5,12 +5,13 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class BookApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[Test]
     public function creates_a_book_successfully()
     {
 
@@ -38,7 +39,7 @@ class BookApiTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function creates_a_book_with_errors()
     {
         $payload = [
@@ -56,7 +57,7 @@ class BookApiTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function get_books_successfully()
     {
         \App\Models\Book::create([
@@ -78,7 +79,7 @@ class BookApiTest extends TestCase
         $response->assertStatus(200)->assertJsonCount(2);
     }
 
-    /** @test */
+    #[Test]
     public function get_book_by_id_successfully()
     {
         \App\Models\Book::create([
@@ -105,7 +106,7 @@ class BookApiTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function delete_book_successfully()
     {
         $book = \App\Models\Book::create([
@@ -124,7 +125,7 @@ class BookApiTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function update_book_successfully()
     {
         $book = \App\Models\Book::create([
